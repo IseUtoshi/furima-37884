@@ -34,17 +34,17 @@
 
 ## items テーブル
 
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| name              | string     | null: false                    |
-| explain           | text       | null: false                    |
-| price             | integer    | null: false                    |
-| category          | string     | null: false                    |
-| status            | string     | null: false                    |
-| delivery_charge   | string     | null: false                    |
-| delivery_from     | string     | null: false                    |
-| delivery_duration | string     | null: false                    |
-| user              | references | null: false, foreign_key: true |
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| name                 | string     | null: false                    |
+| explain              | text       | null: false                    |
+| price                | integer    | null: false                    |
+| category_id          | integer    | null: false                    |
+| status_id            | integer    | null: false                    |
+| delivery_charge_id   | integer    | null: false                    |
+| delivery_from_id     | integer    | null: false                    |
+| delivery_duration_id | integer    | null: false                    |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -79,7 +79,7 @@
 | building         | string     |                                |
 | house_number     | string     | null: false                    |
 | municipality     | string     | null: false                    |
-| prefecture       | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | telephone_number | string     | null: false                    |
 | purchase         | references | null: false, foreign_key: true |
 
