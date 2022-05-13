@@ -23,4 +23,7 @@ class User < ApplicationRecord
     validates :katakana_first_name
     validates :katakana_last_name
   end
+
+  has_many :items
+  
 end
