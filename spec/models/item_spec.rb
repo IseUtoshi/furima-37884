@@ -60,22 +60,22 @@ RSpec.describe Item, type: :model do
       it '価格が安すぎる' do
         @item.price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は300円以上1000万円未満の半角数字で設定してください")
+        expect(@item.errors.full_messages).to include('Price は300円以上1000万円未満の半角数字にしてください')
       end
       it '価格が高すぎる' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は300円以上1000万円未満の半角数字で設定してください")
+        expect(@item.errors.full_messages).to include('Price は300円以上1000万円未満の半角数字にしてください')
       end
       it '価格が半角数値でない' do
-        @item.price = "１０００"
+        @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は300円以上1000万円未満の半角数字で設定してください")
+        expect(@item.errors.full_messages).to include('Price は300円以上1000万円未満の半角数字にしてください')
       end
       it 'userが紐付いていない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
