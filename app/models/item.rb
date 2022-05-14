@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :explain, presence: true
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than: 10000000, message: "価格は300円以上1000万円未満で設定してください"}
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than: 10000000, message: "は300円以上1000万円未満で設定してください"}
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :status_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :delivery_charge_id, numericality: { other_than: 1 , message: "can't be blank"} 
