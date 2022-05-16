@@ -57,20 +57,25 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      it '価格が安すぎる' do
+      it '価格が300円未満では出品できない' do
         @item.price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price は300円以上1000万円未満の半角数字にしてください')
+        expect(@item.errors.full_messages).to include('Price は300以上1000万未満の半角整数にしてください')
       end
-      it '価格が高すぎる' do
+      it '価格が1000万円以上では出品できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price は300円以上1000万円未満の半角数字にしてください')
+        expect(@item.errors.full_messages).to include('Price は300以上1000万未満の半角整数にしてください')
       end
       it '価格が半角数値でない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price は300円以上1000万円未満の半角数字にしてください')
+        expect(@item.errors.full_messages).to include('Price は300以上1000万未満の半角整数にしてください')
+      end
+      it '価格が整数でない' do
+        @item.price = '350.5'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price は300以上1000万未満の半角整数にしてください')
       end
       it 'userが紐付いていない' do
         @item.user = nil
