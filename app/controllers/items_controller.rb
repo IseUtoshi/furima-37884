@@ -34,6 +34,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+  
   private
 
   def find_item
