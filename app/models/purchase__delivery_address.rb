@@ -1,0 +1,2 @@
+class PurchaseDeliveryAddress
+end
