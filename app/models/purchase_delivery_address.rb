@@ -10,7 +10,7 @@ class PurchaseDeliveryAddress
     validates :municipality
     validates :telephone_number, format: {with: /\A\d{10,11}\z/, message: "は10~11桁の数字のみで記載してください"}
   end
-  validates :prefecture, numericality: {other_than: 0, message: "can't be blank"}
+  validates :prefecture, numericality: {other_than: 1, message: "can't be blank"}
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
