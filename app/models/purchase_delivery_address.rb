@@ -13,7 +13,7 @@ class PurchaseDeliveryAddress
   validates :prefecture, numericality: {other_than: 0, message: "can't be blank"}
 
   def save
-    purchase = Purchase.create(user_id: current_user.id, item_id: item_id)
+    purchase = Purchase.create(user_id: user_id, item_id: item_id)
     DeliveryAddress.create(postcode: postcode, building: building, house_number: house_number, municipality: municipality, prefecture: prefecture, telephone_number: telephone_number, purchase_id: purchase.id)
   end
 end
