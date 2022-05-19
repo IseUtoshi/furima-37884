@@ -9,6 +9,7 @@ class PurchaseDeliveryAddress
     validates :house_number
     validates :municipality
     validates :telephone_number, format: {with: /\A\d{10,11}\z/, message: "は10~11桁の数字のみで記載してください"}
+    validates :token
   end
   validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
 
