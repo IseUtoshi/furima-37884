@@ -24,4 +24,9 @@ class PurchasesController < ApplicationController
   def purchase_params
     params.require(:purchase_delivery_address).permit(:postcode, :building, :house_number, :municipality, :prefecture_id, :telephone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
+
+  def pay_item
+  Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+  end
+
 end
