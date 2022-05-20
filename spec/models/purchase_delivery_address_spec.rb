@@ -51,8 +51,13 @@ RSpec.describe PurchaseDeliveryAddress, type: :model do
         @purchase_delivery_address.valid?
         expect(@purchase_delivery_address.errors.full_messages).to include("Telephone number can't be blank")
       end
-      it '電話番号の桁数が10-11桁でない' do
+      it '電話番号の桁数が9桁以下' do
         @purchase_delivery_address.telephone_number = '0901234'
+        @purchase_delivery_address.valid?
+        expect(@purchase_delivery_address.errors.full_messages).to include('Telephone number は10~11桁の数字のみで記載してください')
+      end
+      it '電話番号の桁数が11桁以上' do
+        @purchase_delivery_address.telephone_number = '090123456789'
         @purchase_delivery_address.valid?
         expect(@purchase_delivery_address.errors.full_messages).to include('Telephone number は10~11桁の数字のみで記載してください')
       end

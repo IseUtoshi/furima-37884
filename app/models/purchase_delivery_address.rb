@@ -1,7 +1,7 @@
 class PurchaseDeliveryAddress
   include ActiveModel::Model
   attr_accessor :token, :user_id, :item_id, :postcode, :building, :house_number, :municipality, :prefecture_id,
-                :telephone_number, :purchase_id
+                :telephone_number
 
   with_options presence: true do
     validates :token
