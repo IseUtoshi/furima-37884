@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
   before_action :find_item, only: [:index, :create]
 
   def index
-    redirect_to root_path if current_user.id == @item.user_id
+    redirect_to root_path if current_user.id == @item.user_id || Purchase.find_by(item_id: @item.id).present?
     @purchase_delivery_address = PurchaseDeliveryAddress.new
   end
 
