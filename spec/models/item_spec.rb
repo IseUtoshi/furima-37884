@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
       it 'ユーザーが紐付いていない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include('ユーザーを入力してください')
+        expect(@item.errors.full_messages).to include('ユーザーが存在しません')
       end
     end
   end

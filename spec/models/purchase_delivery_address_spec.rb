@@ -69,12 +69,12 @@ RSpec.describe PurchaseDeliveryAddress, type: :model do
       it 'ユーザーが紐づいていない' do
         @purchase_delivery_address.user_id = nil
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("ユーザーを入力してください")
+        expect(@purchase_delivery_address.errors.full_messages).to include("ユーザーが存在しません")
       end
       it '商品が紐づいていない' do
         @purchase_delivery_address.item_id = nil
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("商品を入力してください")
+        expect(@purchase_delivery_address.errors.full_messages).to include("商品が存在しません")
       end
     end
   end

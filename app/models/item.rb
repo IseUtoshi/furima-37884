@@ -10,6 +10,11 @@ class Item < ApplicationRecord
   validates :delivery_from_id, numericality: { other_than: 1, message: "を入力してください" }
   validates :delivery_duration_id, numericality: { other_than: 1, message: "を入力してください" }
   validates :image, presence: true
+  validate :present_user
+
+  def present_user
+    errors.add(:base, "ユーザーが存在しません") if user.nil?
+  end
 
   belongs_to :user
   has_one_attached :image

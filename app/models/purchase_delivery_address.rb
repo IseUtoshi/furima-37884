@@ -4,9 +4,9 @@ class PurchaseDeliveryAddress
                 :telephone_number
 
   validates :token, presence: { message: 'に誤りがあります' }
+  validates :user_id, presence: { message: 'が存在しません' }
+  validates :item_id, presence: { message: 'が存在しません' }
   with_options presence: true do
-    validates :user_id
-    validates :item_id
     validates :postcode, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'にはハイフンを含めてください' }
     validates :house_number
     validates :municipality
