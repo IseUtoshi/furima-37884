@@ -29,8 +29,5 @@ ja:
         municipality: 市区町村
         prefecture_id: 都道府県
         telephone_number: 電話番号
-    models:
-      item: 商品
-      purchase: 購入
-      delivery_address: 配送先住所
-
+        user_id: ユーザー
+        item_id: 商品

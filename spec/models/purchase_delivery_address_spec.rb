@@ -19,62 +19,62 @@ RSpec.describe PurchaseDeliveryAddress, type: :model do
       it 'トークンを獲得できていない' do
         @purchase_delivery_address.token = nil
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("Token can't be blank")
+        expect(@purchase_delivery_address.errors.full_messages).to include("クレジットカード情報に誤りがあります")
       end
       it '郵便番号が空' do
         @purchase_delivery_address.postcode = ''
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("Postcode can't be blank")
+        expect(@purchase_delivery_address.errors.full_messages).to include("郵便番号を入力してください")
       end
       it '郵便番号が「3桁ハイフン4桁」の形式でない' do
         @purchase_delivery_address.postcode = '3334444'
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include('Postcode にはハイフンを含めてください')
+        expect(@purchase_delivery_address.errors.full_messages).to include('郵便番号にはハイフンを含めてください')
       end
       it '都道府県が選択されていない' do
         @purchase_delivery_address.prefecture_id = '1'
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@purchase_delivery_address.errors.full_messages).to include("都道府県を入力してください")
       end
       it '市区町村が空' do
         @purchase_delivery_address.municipality = ''
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("Municipality can't be blank")
+        expect(@purchase_delivery_address.errors.full_messages).to include("市区町村を入力してください")
       end
       it '番地が空' do
         @purchase_delivery_address.house_number = ''
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("House number can't be blank")
+        expect(@purchase_delivery_address.errors.full_messages).to include("番地を入力してください")
       end
       it '電話番号が空' do
         @purchase_delivery_address.telephone_number = ''
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("Telephone number can't be blank")
+        expect(@purchase_delivery_address.errors.full_messages).to include("電話番号を入力してください")
       end
       it '電話番号の桁数が9桁以下' do
         @purchase_delivery_address.telephone_number = '0901234'
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include('Telephone number は10~11桁の数字のみで記載してください')
+        expect(@purchase_delivery_address.errors.full_messages).to include('電話番号は10~11桁の半角数字のみで記載してください')
       end
       it '電話番号の桁数が11桁以上' do
         @purchase_delivery_address.telephone_number = '090123456789'
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include('Telephone number は10~11桁の数字のみで記載してください')
+        expect(@purchase_delivery_address.errors.full_messages).to include('電話番号は10~11桁の半角数字のみで記載してください')
       end
       it '電話番号が数値のみでない' do
         @purchase_delivery_address.telephone_number = '090-1234-5678'
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include('Telephone number は10~11桁の数字のみで記載してください')
+        expect(@purchase_delivery_address.errors.full_messages).to include('電話番号は10~11桁の半角数字のみで記載してください')
       end
       it 'ユーザーが紐づいていない' do
         @purchase_delivery_address.user_id = nil
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("User can't be blank")
+        expect(@purchase_delivery_address.errors.full_messages).to include("ユーザーを入力してください")
       end
       it '商品が紐づいていない' do
         @purchase_delivery_address.item_id = nil
         @purchase_delivery_address.valid?
-        expect(@purchase_delivery_address.errors.full_messages).to include("Item can't be blank")
+        expect(@purchase_delivery_address.errors.full_messages).to include("商品を入力してください")
       end
     end
   end
