@@ -17,6 +17,7 @@ ja:
         delivery_charge_id: 配送料の負担
         delivery_from_id: 発送元の地域
         delivery_duration_id: 発送までの日数
+        image: 商品画像
       delivery_address:
         postcode: 郵便番号
         building: 建物名
